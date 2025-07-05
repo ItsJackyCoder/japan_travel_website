@@ -1,0 +1,332 @@
+$themeColor: rgba(53, 148, 59, 0.686);
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  //我自己想設定的字體哈哈
+  font-family: "LXGW WenKai TC", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  img.fixed-image {
+    min-height: 100vh; //佔滿這一整個頁面
+    position: fixed;
+    width: 100%;
+
+    //也可以寫成很小的負數(e.g.-100..etc)
+    //這麼設定是為了不要遮住網頁上的任何元素
+    z-index: -5;
+
+    bottom: 0;
+    left: 0;
+  }
+
+  header {
+    //設定白色的原因是為了讓背景圖片的富士山不會凸顯在畫面!
+    background-color: white;
+
+    //希望header中的section.logo和nav tag可以「並排」
+    //所以設定display: flex;!
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    //把header一直固定在上方的功能
+    position: sticky;
+    top: 0;
+
+    //會在此頁面的所有內容的正上方!
+    z-index: 10;
+
+    //header的陰影
+    box-shadow: 0 10px 6px -6px #777;
+
+    section.logo {
+      //為了把nav tag和section.logo區隔開來才這麼寫的
+      //     border: 2px solid green;
+      display: flex;
+      align-items: center;
+
+      flex: 2 1 400px;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      img {
+        //會變成一個正方形
+        width: 6vw;
+        height: 6vw;
+      }
+    }
+
+    nav {
+      //為了把nav tag和section.logo區隔開來才這麼寫的
+      //     border: 2px solid red;
+
+      flex: 5 1 500px;
+
+      ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+
+        li {
+          a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.35rem;
+
+            //為了和border-bottom有距離
+            padding-bottom: 0.3rem;
+
+            transition: all 0.2s ease;
+
+            &:hover {
+              color: $themeColor;
+              border-bottom: 3px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    section.background-img {
+      //設定背景圖片
+      min-height: 70vh;
+      background-image: url("../images/日本櫻花.jpg");
+      background-size: cover;
+      background-position: center;
+
+      //先設定起來,說不定會用得到
+      transition: all 0.75s ease;
+
+      //出現新的stacking context!(position的值為absolute或relative且
+      //z-index的值不是auto!!!!!
+      position: relative;
+      z-index: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      //因為形成了新的stacking context,所以div.filter
+      //的stacking context就和section.background-img
+      //的stacking context不一樣了!
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5); //黑色遮罩
+        width: 100%;
+
+        //要和section.background-img的高度一樣高!
+        //我:因為div tag沒有內容,所以預設高度是0,這裡才必須要設定高度
+        min-height: 70vh;
+
+        //定位參考對象是section.background-img
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h3 {
+        color: white;
+        font-size: 2.5rem;
+
+        text-align: center;
+      }
+    }
+
+    section.info-circles {
+      background-color: white;
+      padding: 2rem 1rem; //上下:2rem; 左右:1rem
+
+      h3 {
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      div.circles {
+        //測試用
+        //border: 3px solid black;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        div.circle {
+          //測試用
+          //border: 3px solid red;
+          padding: 1rem;
+          flex: 0 1 250px;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          img {
+            width: 80%;
+
+            //老師找的圖片幾乎是長寬一樣的正方形
+            border-radius: 50%;
+
+            transition: all 0.1s ease-in;
+
+            //希望和圖片下面的文字有些間隔
+            padding: 0.3rem;
+
+            &:hover {
+              border: 3px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+
+    section.empty-container {
+      min-height: 70vh;
+      background-color: rgba(0, 0, 0, 0.6);
+
+      //希望文字可以置中
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        font-size: 2rem;
+        color: white;
+      }
+    }
+
+    section.google-map {
+      background-color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+
+      h3 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+        margin: 1rem;
+      }
+
+      iframe {
+        width: 100%;
+        height: 40vh;
+      }
+    }
+  }
+
+  footer {
+    //設定成flexbox的原因是希望這裡面的所有東西都可以置中
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    section.logo {
+      img {
+        width: 20vw;
+      }
+
+      h3 {
+        font-size: 2.5rem;
+      }
+    }
+
+    section.links {
+      margin-top: 2rem;
+
+      a {
+        img {
+          width: 5vh;
+          margin: 0rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+//media query-->用來作nav的RWD
+//看一下大概多少會跑版!
+//(大概460多,但你可以把上限拉高,無所謂!等於是說width低於700px就要執行裡面的內容)
+@media screen and (max-width: 700px) {
+  //這裡要注意"specificity"的問題!(如果有樣式衝突的話!)
+  //參考IPAD Project2-日本旅遊網站 p.13
+  body {
+    header {
+      position: static;
+
+      section.logo {
+        //原始寫法:不好
+        // img {
+        //   width: 100vw;
+        // }
+
+        //正確的寫法:
+        flex-direction: column;
+
+        img {
+          width: 50vw;
+          height: 50vw;
+        }
+      }
+
+      nav {
+        ul {
+          flex-direction: column;
+
+          //我自己測試的,希望變直向後,每個li tag之間有空隙
+          //原始情況因為高度就是內容高度,所以原先設定的
+          //justify-content: space-around;才沒有作用!!!
+          // height: 150px;
+
+          //老師的寫法:(果然優秀哈哈哈)
+          li {
+            padding: 0.5rem 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+//scrollbar的樣式修改
+//width
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+//Track
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+//Handle
+::-webkit-scrollbar-thumb {
+  background: $themeColor;
+}
+
+//Handle on hover
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(26, 160, 32);
+}
