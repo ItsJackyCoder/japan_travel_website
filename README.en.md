@@ -6,13 +6,13 @@
 
 Introduce
 ---
-This website is designed to display the user's inventory of Taiwanese currency, US dollars, and Taiwanese stocks. The stock information reflects the latest closing prices from the Taiwan Stock Exchange on the current trading day.
+This is a webpage designed to introduce travel information about Japan. The focus is on the overall layout and visual structure, without implementing interactive or functional features.
 
 
 Technology Stack
 ---
 
-* Frontend:`JavaScript`, `HTML`, `CSS`
+* Frontend:`JavaScript`, `HTML5`, `CSS3`
 * Frameworks: `Bootstrap`
 
 User Interface
