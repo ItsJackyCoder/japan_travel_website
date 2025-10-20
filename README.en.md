@@ -19,17 +19,10 @@ User Interface
 ---
 
 #### Home Page:
-![](static/images/homepage.png)
+![](photos/homepage-1.png)
 
-#### Cash Inventory:
-![](static/images/cash_inventory.png)
+![](photos/homepage-2.png)
 
-#### Stock Inventory:
-![](static/images/stock_inventory.png)
+![](photos/homepage-3.png)
 
-#### Cash Record:
-![](static/images/cash_record.png)
-
-#### Stock Record:
-![](static/images/stock_record.png)
-
+![](photos/homepage-4.png)
