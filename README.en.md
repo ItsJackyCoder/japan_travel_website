@@ -1,4 +1,4 @@
-:moneybag: Travel Website
+🌍 Travel Website
 ===
 
 [Go to Website](https://explorejapan2025.netlify.app/)
